@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= NAME OVERLAY (LOCK SCREEN) ================= -->
+  <div id="overlay">
+    <div class="name-box">
+      <h2>Enter Your Name</h2>
+      <input 
+        type="text" 
+        id="usernameInput" 
+        placeholder="Your name"
+        autocomplete="off"
+      />
+      <button id="startQuiz">Start Quiz</button>
+    </div>
+  </div>
+
+  <!-- ================= QUIZ CONTAINER ================= -->
+  <div class="quiz-container" id="quizContainer">
+
+    <h1 class="title">Quiz App</h1>
+
+    <!-- Timer (JS will control text, NOT hard-coded) -->
+    <div id="timer" class="timer"></div>
+
+    <!-- Question -->
+    <div class="question" id="question">
+      <!-- Question text injected by JS -->
+    </div>
+
+    <!-- Options -->
+    <div class="options" id="options">
+      <!-- 
+        JS will inject options like:
+
+        <label class="option">
+          <input type="radio" name="option" value="..." />
+          <span>Option text</span>
+        </label>
+      -->
+    </div>
+
+    <!-- Next / Submit Button -->
+    <button id="nextBtn" class="next-btn">
+      Next
+    </button>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

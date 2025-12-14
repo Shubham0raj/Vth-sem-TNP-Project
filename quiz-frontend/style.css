@@ -1,0 +1,150 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page background */
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Quiz card */
+.quiz-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Question */
+.question {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Options container */
+.options {
+  margin-bottom: 25px;
+}
+
+/* Individual option */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f1f5f9;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+/* Radio button */
+.option input[type="radio"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Option text */
+.option span {
+  font-size: 16px;
+  color: #111;
+}
+
+/* Next button */
+.next-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.next-btn:hover {
+  background: #1e40af;
+}
+
+.next-btn:active {
+  transform: scale(0.97);
+}
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.name-box {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+}
+
+.name-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+.name-box button {
+  padding: 10px;
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.timer {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #2563eb;
+}
+
+.timer.warning {
+  color: #f59e0b;
+}
+
+.timer.danger {
+  color: #dc2626;
+}
+

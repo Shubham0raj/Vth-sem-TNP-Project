@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin – Add Question</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+    .admin-card {
+      background: white;
+      padding: 25px;
+      width: 420px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    input, textarea, select, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px;
+      font-size: 14px;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="admin-card">
+  <h2>Add Question</h2>
+
+  <textarea id="question" placeholder="Question"></textarea>
+  <input id="opt1" placeholder="Option 1" />
+  <input id="opt2" placeholder="Option 2" />
+  <input id="opt3" placeholder="Option 3" />
+  <input id="opt4" placeholder="Option 4" />
+
+  <select id="correctIndex">
+    <option value="">Select correct option</option>
+    <option value="0">Option 1</option>
+    <option value="1">Option 2</option>
+    <option value="2">Option 3</option>
+    <option value="3">Option 4</option>
+  </select>
+
+  <button id="addBtn">Add Question</button>
+</div>
+
+<script>
+const addBtn = document.getElementById("addBtn");
+
+addBtn.addEventListener("click", async () => {
+  const q = question.value.trim();
+  const options = [
+    opt1.value.trim(),
+    opt2.value.trim(),
+    opt3.value.trim(),
+    opt4.value.trim()
+  ];
+  const correct = correctIndex.value;
+
+  if (!q || options.some(o => !o) || correct === "") {
+    alert("Fill all fields");
+    return;
+  }
+
+  const body = {
+    question: q,
+    options,
+    answer: options[correct]
+  };
+
+  try {
+    const res = await fetch("http://localhost:5000/api/questions/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    });
+
+    if (!res.ok) throw new Error();
+
+    alert("Question added successfully");
+
+    question.value = "";
+    opt1.value = opt2.value = opt3.value = opt4.value = "";
+    correctIndex.value = "";
+
+  } catch {
+    alert("Error adding question");
+  }
+});
+</script>
+
+</body>
+</html>
